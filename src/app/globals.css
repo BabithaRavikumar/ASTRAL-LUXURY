@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-neon-blue: #ff0000;
+  --color-neon-purple: #cc0000;
+  --color-silver: #a0a0a0;
+  --color-card: rgba(255, 255, 255, 0.85);
+  --color-card-border: rgba(255, 0, 0, 0.2);
+  
+  /* Theme overrides to flip dark-mode classes to light-mode */
+  --color-white: var(--foreground);
+  --color-black: var(--background);
+  --color-gray-400: #6b7280;
+  --color-gray-700: #e5e7eb;
+  
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #f9f9f9;
+  --foreground: #1a1a1a;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #cc0000;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff0000;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: var(--color-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-card-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Glowing text */
+.glow-text {
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
